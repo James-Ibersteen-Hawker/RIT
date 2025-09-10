@@ -6,7 +6,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background-image: linear-gradient(to bottom, transparent, gray),
+  background-image: linear-gradient(to bottom, rgba(168, 168, 168, 0.466), gray),
     url(imgs/bg.png);
   background-size: 100px;
   animation-name: moveBG;
@@ -22,28 +22,57 @@ body {
     background-position: 100px;
   }
 }
-
+@keyframes logo {
+}
 header {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 200px;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(255, 123, 0),
-    rgba(255, 123, 0, 0.671),
-    transparent
-  );
-  border-bottom: 1px solid rgb(158, 158, 158);
+  background-color: transparent;
+  border-bottom: 1px solid rgb(75, 75, 75);
+  backdrop-filter: blur(3px);
+  z-index: 3;
   .LOGO {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    aspect-ratio: 1/1;
     object-position: center;
-    object-fit: contain;
+    object-fit: scale-down;
     border-radius: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    border: 5px outset black;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0px 0px 20px rgb(80, 32, 0);
+    backdrop-filter: blur(100px);
+    background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
+    animation-name: logo;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: 1;
   }
+  .LOGO::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 100%;
+    border: 10px outset black;
+    z-index: 2;
+  }
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 123, 0);
+  mask-image: linear-gradient(
+    to bottom,
+    white,
+    rgba(255, 255, 255, 0.582),
+    transparent
+  );
 }
