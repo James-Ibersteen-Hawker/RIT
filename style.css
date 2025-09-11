@@ -23,42 +23,72 @@ body {
   }
 }
 @keyframes logo {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 header {
   position: fixed;
   width: 100%;
-  height: 200px;
+  --HEADERHEIGHT: 200px;
+  height: var(--HEADERHEIGHT);
   background-color: transparent;
   border-bottom: 1px solid rgb(75, 75, 75);
   backdrop-filter: blur(3px);
   z-index: 3;
   .LOGO {
-    width: 300px;
+    width: 250px;
+    user-select: none;
     aspect-ratio: 1/1;
-    object-position: center;
-    object-fit: scale-down;
+    border-radius: 100%;
+    position: absolute;
+    top: var(--HEADERHEIGHT);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0px 0px 20px rgb(80, 32, 0);
+    background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
+  }
+  .rondel {
+    width: 270px;
+    aspect-ratio: 1/1;
     border-radius: 100%;
     position: absolute;
     top: 200px;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-    box-shadow: 0px 0px 20px rgb(80, 32, 0);
-    backdrop-filter: blur(100px);
-    background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
+    z-index: 1;
+    border: 10px outset black;
     animation-name: logo;
-    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    z-index: 1;
+    animation-duration: 3s;
   }
-  .LOGO::before {
-    content: "";
+  .links {
     position: absolute;
-    width: 500px;
+    z-index: 4;
+    display: flex;
+    width: 100%;
     height: 100%;
-    border: 10px outset black;
-    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Chango";
+    .divide {
+      width: 300px;
+    }
+    .side {
+      width: calc(50% - 300px / 2);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
   }
 }
 header::before {
@@ -75,4 +105,21 @@ header::before {
     rgba(255, 255, 255, 0.582),
     transparent
   );
+}
+
+@media (max-width: 900px) {
+  .side {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+  }
+  .LOGO {
+    width: 200px !important;
+  }
+  .rondel {
+    width: 220px !important;
+  }
+  .divide {
+    width: 240px !important;
+  }
 }
