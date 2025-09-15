@@ -9,7 +9,8 @@ body {
   background-image: linear-gradient(to bottom, rgba(168, 168, 168, 0.466), gray),
     url(imgs/bg.png);
   background-attachment: fixed;
-  background-size: 5%;
+  background-size: 10%;
+  --orange: rgb(255, 102, 0);
   animation-name: moveBG;
   animation-duration: 7s;
   animation-iteration-count: infinite;
@@ -20,7 +21,7 @@ body {
     background-position: 0;
   }
   to {
-    background-position: 5%;
+    background-position: 10%;
   }
 }
 @keyframes logo {
@@ -40,7 +41,7 @@ header {
   background-color: transparent;
   border-bottom: 1px solid rgb(75, 75, 75);
   backdrop-filter: blur(3px);
-  z-index: 3;
+  z-index: 20;
   .LOGO {
     width: 230px;
     user-select: none;
@@ -64,7 +65,7 @@ header {
     transform: translate(-50%, -50%);
     z-index: 1;
     border: 10px outset black;
-    box-shadow: 0px 0px 5px rgb(255, 77, 0), 0px 0px 5px black;
+    box-shadow: 0px 0px 5px var(--orange), 0px 0px 5px black;
     animation-name: logo;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -82,9 +83,31 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: "Chango";
+    font-family: "Chango", sans-serif;
     color: rgba(0, 0, 0, 0.725);
     text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55);
+    .active {
+      text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55),
+        0px 0px 10px rgb(255, 255, 255);
+    }
+    .link {
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .link:hover {
+      text-shadow: 0px 0px 2px var(--orange), -5px -5px 1px rgb(71, 48, 33),
+        -5px -5px 2px var(--orange), -10px -10px 1px rgb(36, 25, 19),
+        -10px -10px 2px var(--orange);
+      color: black;
+      transition: 0.25s;
+    }
+    .active:hover {
+      text-shadow: 0px 0px 10px rgb(255, 255, 255), 0px 0px 2px var(--orange),
+        -5px -5px 1px rgb(71, 48, 33), -5px -5px 2px var(--orange),
+        -10px -10px 1px rgb(36, 25, 19), -10px -10px 2px var(--orange);
+      color: black;
+      transition: 0.25s;
+    }
     .divide {
       width: 300px;
     }
@@ -103,7 +126,7 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 123, 0);
+  background-color: var(--orange);
   mask-image: linear-gradient(
     to bottom,
     white,
@@ -128,22 +151,32 @@ header::before {
   }
 }
 .hero {
-  width: 100%;
-  height: calc(100% - 100px);
-  margin-top: 50px;
   position: relative;
   z-index: 2;
-  img {
-    width: 100%;
-    height: 100%;
-    background: red;
-    background-size: cover;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 30px,
-      white,
-      white,
-      white
-    );
+  width: 100%;
+  height: calc(100% - 120px);
+  background-image: url("imgs/hero.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  mask-image: linear-gradient(to bottom, transparent 50px, white, white, white);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+main {
+  #quote {
+    border-top: 3px solid rgba(255, 184, 127, 0.452);
+    background-color: rgba(255, 115, 0, 0.342);
+    min-height: 120px;
+    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.322);
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 30px;
+    font-family: "Tinos", serif;
+    font-weight: 900;
   }
 }
