@@ -1,3 +1,4 @@
+const DOC = document;
 const NAV = {
   src: document.querySelector("header"),
   links: Array.from(document.querySelectorAll(".link")).map(
@@ -22,4 +23,25 @@ const NAV = {
     });
   },
 };
+const PAGE = {
+  points: Array.from(DOC.querySelectorAll(".heading")).map((e) => [e, 0]),
+  init() {
+    this.points.forEach(
+      (e) => (e[1] = window.scrollY + e[0].getBoundingClientRect().top - 160)
+    );
+    NAV.links.forEach((e) => {
+      e[0].addEventListener(
+        "click",
+        (() => this.scroll(e[0].textContent)).bind(this)
+      );
+    });
+  },
+  scroll(h) {
+    const point = this.points.find((e) => e[0].textContent === h)?.[1];
+    window.scrollTo({ top: point || 0, left: 0, behavior: "smooth" });
+  },
+};
+
 NAV.init();
+PAGE.init();
+window.addEventListener("scroll", PAGE.init);

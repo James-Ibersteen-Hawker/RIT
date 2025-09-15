@@ -154,7 +154,7 @@ header::before {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: calc(100% - 120px);
+  height: calc(100% - 80px);
   background-image: url("imgs/hero.jpg");
   background-position: center;
   background-size: cover;
@@ -167,7 +167,7 @@ main {
   #quote {
     border-top: 3px solid rgba(255, 184, 127, 0.452);
     background-color: rgba(255, 115, 0, 0.342);
-    min-height: 120px;
+    min-height: 80px;
     box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.322);
     position: relative;
     z-index: 3;
