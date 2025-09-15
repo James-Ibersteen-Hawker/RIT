@@ -16,10 +16,9 @@ const NAV = {
   init() {
     this.links.forEach((e, i) => {
       function clickFunction() {
-        this.links.forEach((e) => (e[1] = false));
-        e[1] = true;
+        this.links.forEach((e) => (e[1] = false)), (e[1] = true);
       }
-      e[0].addEventListener("click", clickFunction.bind(this));
+      e[0].addEventListener("mousedown", clickFunction.bind(this));
     });
   },
 };
