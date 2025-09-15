@@ -8,7 +8,8 @@ body {
   margin: 0;
   background-image: linear-gradient(to bottom, rgba(168, 168, 168, 0.466), gray),
     url(imgs/bg.png);
-  background-size: 100px;
+  background-attachment: fixed;
+  background-size: 5%;
   animation-name: moveBG;
   animation-duration: 7s;
   animation-iteration-count: infinite;
@@ -19,7 +20,7 @@ body {
     background-position: 0;
   }
   to {
-    background-position: 100px;
+    background-position: 5%;
   }
 }
 @keyframes logo {
@@ -32,15 +33,16 @@ body {
 }
 header {
   position: fixed;
+  top: 0;
   width: 100%;
-  --HEADERHEIGHT: 200px;
+  --HEADERHEIGHT: 150px;
   height: var(--HEADERHEIGHT);
   background-color: transparent;
   border-bottom: 1px solid rgb(75, 75, 75);
   backdrop-filter: blur(3px);
   z-index: 3;
   .LOGO {
-    width: 250px;
+    width: 230px;
     user-select: none;
     aspect-ratio: 1/1;
     border-radius: 100%;
@@ -53,15 +55,16 @@ header {
     background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
   }
   .rondel {
-    width: 270px;
+    width: 250px;
     aspect-ratio: 1/1;
     border-radius: 100%;
     position: absolute;
-    top: 200px;
+    top: 150px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     border: 10px outset black;
+    box-shadow: 0px 0px 5px rgb(255, 77, 0), 0px 0px 5px black;
     animation-name: logo;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -80,6 +83,8 @@ header {
     justify-content: center;
     text-align: center;
     font-family: "Chango";
+    color: rgba(0, 0, 0, 0.725);
+    text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55);
     .divide {
       width: 300px;
     }
@@ -106,7 +111,6 @@ header::before {
     transparent
   );
 }
-
 @media (max-width: 900px) {
   .side {
     display: flex;
@@ -121,5 +125,25 @@ header::before {
   }
   .divide {
     width: 240px !important;
+  }
+}
+.hero {
+  width: 100%;
+  height: calc(100% - 100px);
+  margin-top: 50px;
+  position: relative;
+  z-index: 2;
+  img {
+    width: 100%;
+    height: 100%;
+    background: red;
+    background-size: cover;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 30px,
+      white,
+      white,
+      white
+    );
   }
 }
