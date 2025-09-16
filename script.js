@@ -24,16 +24,27 @@ const NAV = {
   },
 };
 const PAGE = {
-  points: Array.from(DOC.querySelectorAll(".heading")).map((e) => [e, 0]),
-  init() {
+  points: [],
+  init(listener = false) {
+    const headings = Array.from(DOC.querySelectorAll(".heading")).map((e) => [
+      e,
+      0,
+    ]);
+    this.points = headings;
     this.points.forEach(
-      (e) => (e[1] = window.scrollY + e[0].getBoundingClientRect().top - 160)
+      (e) => (e[1] = window.scrollY + e[0].getBoundingClientRect().top - 150)
     );
+    if (!listener) return;
+    window.addEventListener("scroll", () => PAGE.init(false));
     NAV.links.forEach((e) => {
       e[0].addEventListener(
         "click",
         (() => this.scroll(e[0].textContent)).bind(this)
       );
+    });
+    document.querySelector(".LOGO").addEventListener("click", () => {
+      window.scrollTo(0, 0);
+      NAV.links.forEach(([e, _]) => e.classList.remove("active"));
     });
   },
   scroll(h) {
@@ -41,7 +52,13 @@ const PAGE = {
     window.scrollTo({ top: point || 0, left: 0, behavior: "smooth" });
   },
 };
+const TEXT = {
+  quotes: [],
+  newQuote() {},
+  init() {
+    this.newQuote();
+  },
+};
 
 NAV.init();
-PAGE.init();
-window.addEventListener("scroll", PAGE.init);
+PAGE.init(true);

@@ -6,15 +6,251 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  background-image: linear-gradient(to bottom, rgba(168, 168, 168, 0.466), gray),
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.466),
+      rgba(184, 184, 184, 0.8),
+      gray
+    ),
     url(imgs/bg.png);
   background-attachment: fixed;
   background-size: 10%;
   --orange: rgb(255, 102, 0);
+  scroll-behavior: smooth;
   animation-name: moveBG;
   animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    --HEADERHEIGHT: 150px;
+    height: var(--HEADERHEIGHT);
+    background-color: transparent;
+    border-bottom: 1px solid rgb(75, 75, 75);
+    backdrop-filter: blur(3px);
+    z-index: 20;
+    .LOGO {
+      cursor: pointer;
+      width: 230px;
+      user-select: none;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      position: absolute;
+      top: var(--HEADERHEIGHT);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 21;
+      box-shadow: 0px 0px 20px rgb(80, 32, 0);
+      transition: 0.5s;
+
+      background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
+    }
+    .LOGO:hover {
+      transition: 0.5s;
+      box-shadow: 0px 0px 30px rgb(80, 32, 0);
+    }
+    .rondel {
+      width: 250px;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      border: 10px outset black;
+      box-shadow: 0px 0px 5px var(--orange), 0px 0px 5px black;
+      animation-name: logo;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-duration: 3s;
+    }
+    .links {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: "Chango", sans-serif;
+      color: rgba(0, 0, 0, 0.725);
+      text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55);
+      .active {
+        text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55),
+          0px 0px 10px rgb(255, 255, 255);
+      }
+      .link {
+        cursor: pointer;
+        transition: 0.25s;
+      }
+      .link:hover {
+        text-shadow: 0px 0px 2px var(--orange), -5px -5px 1px rgb(71, 48, 33),
+          -5px -5px 2px var(--orange), -10px -10px 1px rgb(36, 25, 19),
+          -10px -10px 2px var(--orange);
+        color: black;
+        transition: 0.25s;
+      }
+      .active:hover {
+        text-shadow: 0px 0px 10px rgb(255, 255, 255), 0px 0px 2px var(--orange),
+          -5px -5px 1px rgb(71, 48, 33), -5px -5px 2px var(--orange),
+          -10px -10px 1px rgb(36, 25, 19), -10px -10px 2px var(--orange);
+        color: black;
+        transition: 0.25s;
+      }
+      .divide {
+        width: 300px;
+      }
+      .side {
+        width: calc(50% - 300px / 2);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+    }
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--orange);
+    mask-image: linear-gradient(
+      to bottom,
+      white,
+      rgba(255, 255, 255, 0.582),
+      transparent
+    );
+  }
+  .hero {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(100% - 80px);
+    background-image: url("imgs/hero.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 50px,
+      white,
+      white,
+      white
+    );
+    mask-repeat: no-repeat;
+    mask-size: cover;
+  }
+  main {
+    #quote {
+      border-top: 3px solid rgba(255, 184, 127, 0.452);
+      border-bottom: 3px solid rgba(255, 184, 127, 0.452);
+      background-color: rgba(255, 115, 0, 0.342);
+      min-height: 80px;
+      box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.322), 0px 10px 20px black;
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 30px;
+      font-family: "Tinos", serif;
+      font-weight: 900;
+    }
+    .parallax {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 400px;
+      opacity: 0.8;
+    }
+    .p1 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-image: url(imgs/img1.jpg);
+    }
+    .p2 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-image: url(imgs/img2.jpg);
+    }
+    .p3 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-image: url(imgs/img5.webp);
+    }
+    .p4 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-image: url(imgs/img3.webp);
+    }
+    .p5 {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-image: url(imgs/img4.jpg);
+    }
+    .heading {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      border-top: 3px solid rgba(255, 184, 127, 0.452);
+      border-bottom: 3px solid rgba(255, 184, 127, 0.452);
+      background-color: rgba(255, 115, 0, 0.342);
+      box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 1);
+      font-size: 40px;
+      padding: 0px 10px;
+      font-family: "Tinos", serif;
+      font-weight: 700;
+      font-style: normal;
+      color: black;
+    }
+    .text::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 50%;
+      width: 50px;
+      transform: translateY(-50%);
+      height: 2px;
+      background-color: black;
+      mask-image: linear-gradient(
+        45deg,
+        transparent 30%,
+        white 30% 70%,
+        transparent 30%
+      );
+    }
+    .h-1 {
+      text-align: left;
+    }
+    .h-1::before {
+    }
+    .h-2 {
+      text-align: right;
+    }
+    .h-3 {
+      text-align: left;
+    }
+    .h-4 {
+      text-align: right;
+    }
+    .h-5 {
+      text-align: left;
+    }
+  }
 }
 @keyframes moveBG {
   from {
@@ -32,108 +268,6 @@ body {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  --HEADERHEIGHT: 150px;
-  height: var(--HEADERHEIGHT);
-  background-color: transparent;
-  border-bottom: 1px solid rgb(75, 75, 75);
-  backdrop-filter: blur(3px);
-  z-index: 20;
-  .LOGO {
-    width: 230px;
-    user-select: none;
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-    position: absolute;
-    top: var(--HEADERHEIGHT);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    box-shadow: 0px 0px 20px rgb(80, 32, 0);
-    background-image: linear-gradient(rgb(179, 179, 179), rgb(255, 182, 123));
-  }
-  .rondel {
-    width: 250px;
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    border: 10px outset black;
-    box-shadow: 0px 0px 5px var(--orange), 0px 0px 5px black;
-    animation-name: logo;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 3s;
-  }
-  .links {
-    position: absolute;
-    z-index: 4;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: "Chango", sans-serif;
-    color: rgba(0, 0, 0, 0.725);
-    text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55);
-    .active {
-      text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55),
-        0px 0px 10px rgb(255, 255, 255);
-    }
-    .link {
-      cursor: pointer;
-      transition: 0.25s;
-    }
-    .link:hover {
-      text-shadow: 0px 0px 2px var(--orange), -5px -5px 1px rgb(71, 48, 33),
-        -5px -5px 2px var(--orange), -10px -10px 1px rgb(36, 25, 19),
-        -10px -10px 2px var(--orange);
-      color: black;
-      transition: 0.25s;
-    }
-    .active:hover {
-      text-shadow: 0px 0px 10px rgb(255, 255, 255), 0px 0px 2px var(--orange),
-        -5px -5px 1px rgb(71, 48, 33), -5px -5px 2px var(--orange),
-        -10px -10px 1px rgb(36, 25, 19), -10px -10px 2px var(--orange);
-      color: black;
-      transition: 0.25s;
-    }
-    .divide {
-      width: 300px;
-    }
-    .side {
-      width: calc(50% - 300px / 2);
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-  }
-}
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--orange);
-  mask-image: linear-gradient(
-    to bottom,
-    white,
-    rgba(255, 255, 255, 0.582),
-    transparent
-  );
-}
 @media (max-width: 900px) {
   .side {
     display: flex;
@@ -148,35 +282,5 @@ header::before {
   }
   .divide {
     width: 240px !important;
-  }
-}
-.hero {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: calc(100% - 80px);
-  background-image: url("imgs/hero.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  mask-image: linear-gradient(to bottom, transparent 50px, white, white, white);
-  mask-repeat: no-repeat;
-  mask-size: cover;
-}
-main {
-  #quote {
-    border-top: 3px solid rgba(255, 184, 127, 0.452);
-    background-color: rgba(255, 115, 0, 0.342);
-    min-height: 80px;
-    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.322);
-    position: relative;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-size: 30px;
-    font-family: "Tinos", serif;
-    font-weight: 900;
   }
 }
