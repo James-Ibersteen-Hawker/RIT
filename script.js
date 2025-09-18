@@ -26,7 +26,7 @@ const NAV = {
 const PAGE = {
   points: [],
   init(listener = false) {
-    const headings = Array.from(DOC.querySelectorAll(".heading")).map((e) => [
+    const headings = Array.from(DOC.querySelectorAll(".linkTo")).map((e) => [
       e,
       0,
     ]);
@@ -53,8 +53,17 @@ const PAGE = {
   },
 };
 const TEXT = {
-  quotes: [],
-  newQuote() {},
+  quotes: [
+    "We shape the future and improve the world through creativity and innovation",
+    "We're driving progress, we're shaping what's possible",
+    "Fostering vibrant culture through inclusivity, connectivity, and opportunity",
+    "At RIT, we don't settle for the ordinary—we strive for the extraordinary",
+    "Drive progress. Shape what's possible. Transform the future",
+  ],
+  newQuote() {
+    document.querySelector(".quoteText").textContent =
+      this.quotes[Math.floor(Math.random() * this.quotes.length)] + ".";
+  },
   init() {
     this.newQuote();
   },
@@ -62,3 +71,4 @@ const TEXT = {
 
 NAV.init();
 PAGE.init(true);
+TEXT.init();
