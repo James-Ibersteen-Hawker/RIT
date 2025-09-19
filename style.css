@@ -15,8 +15,9 @@ body {
     ),
     url(imgs/bg.png);
   background-attachment: fixed;
-  background-size: 10%;
+  background-size: 80;
   --orange: rgb(255, 102, 0);
+  --transOrange: rgba(255, 102, 0, 0.616);
   scroll-behavior: smooth;
   animation-name: moveBG;
   animation-duration: 7s;
@@ -303,38 +304,93 @@ body {
     }
   }
   footer {
+    overflow-x: clip;
     width: 100%;
-    height: 500px;
     position: relative;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(128, 128, 128, 0.9),
-      rgba(0, 0, 0, 0.9)
-    );
+    background-color: rgba(0, 0, 0, 0.616);
     display: flex;
     justify-content: center;
     border-top: 5px outset rgb(197, 197, 197);
     box-shadow: 0px 0px 20px var(--orange);
     z-index: 5;
     .section {
-      padding: 10px;
+      padding: 5px;
+      filter: drop-shadow(0px 0px 3px white);
       .links {
+        position: relative;
+        left: 25px;
         padding: 15px;
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 10px;
+        background: var(--transOrange);
         height: 100%;
-        border: 5px outset var(--orange);
-        box-shadow: 0px 0px 3px black;
+        width: calc(100% - 50px);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         font-family: "Yrsa", serif;
+        font-style: italic;
         font-size: 22px;
+        overflow-wrap: normal;
         a {
           color: black;
+          text-decoration: underline;
         }
+        .stagger {
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        .stagger::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          background: black;
+          height: 10px;
+          width: 20%;
+          transform: translate(-1px, -50%);
+          clip-path: polygon(
+            0px 7px,
+            2px 50%,
+            0px 3px,
+            calc(100% - 20px) 3px,
+            /*arrowhead*/ calc(100% - 20px) 7px,
+            0px 7px
+          );
+        }
+        .stagger::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -50px;
+          background: black;
+          height: 10px;
+          width: 30%;
+          transform: translateY(-50%);
+        }
+      }
+      .noLine {
+        text-decoration: none !important;
+      }
+      .links::before {
+        position: absolute;
+        right: 0;
+        content: "";
+        height: 100%;
+        width: 50px;
+        background: var(--transOrange);
+        transform: translateX(99.5%);
+        clip-path: polygon(0px 0px, 100% 50%, 0px 100%);
+      }
+      .links::after {
+        position: absolute;
+        left: 0;
+        content: "";
+        height: 100%;
+        width: 50px;
+        background: var(--transOrange);
+        transform: translateX(-99.5%);
+        clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%, 100% 50%);
       }
     }
   }
@@ -352,7 +408,7 @@ body {
     background-position: 0;
   }
   to {
-    background-position: 10%;
+    background-position: 80px;
   }
 }
 @keyframes logo {
@@ -377,5 +433,8 @@ body {
   }
   .divide {
     width: 240px !important;
+  }
+  .links {
+    position: absolute;
   }
 }
