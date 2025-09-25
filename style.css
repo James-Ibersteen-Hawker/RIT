@@ -409,6 +409,22 @@ body {
         clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%, 100% 50%);
       }
     }
+    .section:nth-child(1) {
+      .links .stagger::before {
+        display: none;
+      }
+      .links::after {
+        clip-path: none;
+      }
+    }
+    .section:nth-child(6) {
+      .links .stagger::after {
+        display: none;
+      }
+      .links::before {
+        clip-path: none;
+      }
+    }
   }
 }
 .container-fluid {

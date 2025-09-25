@@ -42,7 +42,7 @@ const PAGE = {
         (() => this.scroll(e[0].textContent)).bind(this)
       );
     });
-    document.querySelector(".LOGO").addEventListener("click", () => {
+    document.querySelector(".LOGO.Top").addEventListener("click", () => {
       window.scrollTo(0, 0);
       NAV.links.forEach(([e, _]) => e.classList.remove("active"));
     });
@@ -64,8 +64,68 @@ const TEXT = {
     document.querySelector(".quoteText").textContent =
       this.quotes[Math.floor(Math.random() * this.quotes.length)] + ".";
   },
+  footContent: [
+    [
+      "https://www.rit.edu/admissions/financial-aid",
+      "Financial Aid",
+      "585-475-2186",
+      "ritaid@rit.edu",
+    ],
+    ["https://www.rit.edu/housing/", "Housing", "585-475-5000", "help.rit.edu"],
+    [
+      "https://www.rit.edu/studentlife/departments",
+      "Student Affairs",
+      "585-475-2265",
+      "studentaffairs@rit.edu",
+    ],
+    [
+      "https://www.rit.edu/admissions/first-year-application",
+      "Undergraduate Admissions",
+      "585-475-6631",
+      "admissions@rit.edu",
+    ],
+    [
+      "https://help.rit.edu/csp",
+      "RIT Service Center",
+      "585-475-5000",
+      "help.rit.edu",
+    ],
+    [
+      "https://www.rit.edu/admissions/graduate",
+      "Graduate Admissions",
+      "585-475-2229",
+      "gradinfo@rit.edu",
+    ],
+  ],
+  genFoot() {
+    this.footContent.forEach(([link, name, number, mailto]) => {
+      document.querySelector("footer").insertAdjacentHTML(
+        "beforeend",
+        `<div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
+        <div class="links row">
+          <div class="col-4 col-sm-12">
+            <a
+              href="${link}"
+              target="_blank"
+              >${name}</a
+            >
+          </div>
+          <div class="col-4 col-sm-12">
+            <p class="stagger">${number}</p>
+          </div>
+          <div class="col-4 col-sm-12">
+            <a class="noLine" href="mailto:${mailto}" target="_blank"
+              >${mailto}</a
+            >
+          </div>
+        </div>
+      </div>`
+      );
+    });
+  },
   init() {
     this.newQuote();
+    this.genFoot();
   },
 };
 

@@ -42,7 +42,19 @@
 
   <body class="container-fluid">
     <header>
-      <img src="imgs/logoRondel.png" alt="" class="LOGO" />
+      <img
+        src="imgs/logoRondel.png"
+        alt=""
+        class="LOGO Top d-none d-sm-block"
+      />
+      <img
+        src="imgs/logoRondel.png"
+        alt=""
+        class="LOGO d-block d-sm-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#navBar"
+        aria-controls="navBar"
+      />
       <div class="rondel"></div>
       <div class="links d-none d-sm-flex">
         <div class="side">
@@ -80,117 +92,24 @@
       </div>
       <div class="parallax p5"></div>
     </main>
-    <footer class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a
-              href="https://www.rit.edu/admissions/financial-aid"
-              target="_blank"
-              >Financial Aid</a
-            >
-          </div>
-          <div class="col-4 col-sm-12">
-            <p class="stagger">585-475-2186</p>
-          </div>
-          <div class="col-4 col-sm-12">
-            <a class="noLine" href="mailto:ritaid@rit.edu" target="_blank"
-              >ritaid@rit.edu</a
-            >
-          </div>
-        </div>
+    <footer class="row"></footer>
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="navBar"
+      aria-labelledby="navBarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="navBarLabel">- Sections -</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a href="https://www.rit.edu/housing/" target="_blank">Housing</a>
-          </div>
-          <div class="col-4 col-sm-12">
-            <p class="stagger">585-475-5000</p>
-          </div>
-          <div class="col-4 col-sm-12">
-            <a class="noLine" href="mailto:help.rit.edu" target="_blank"
-              >help.rit.edu</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a
-              href="https://www.rit.edu/studentlife/departments"
-              target="_blank"
-              >Student Affairs</a
-            >
-          </div>
-          <div class="col-4 col-sm-12">
-            <div class="stagger">585-475-2265</div>
-          </div>
-          <div class="col-4 col-sm-12" id="affairs">
-            <a
-              class="noLine"
-              href="mailto:studentaffairs@rit.edu"
-              target="_blank"
-              >studentaffairs@rit.edu
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a
-              href="https://www.rit.edu/admissions/first-year-application"
-              target="_blank"
-              >Undergraduate Admissions</a
-            >
-          </div>
-          <div class="col-4 col-sm-12">
-            <p class="stagger">585-475-6631</p>
-          </div>
-          <div class="col-4 col-sm-12">
-            <a class="noLine" href="mailto:admissions@rit.edu" target="_blank"
-              >admissions@rit.edu</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a href="https://help.rit.edu/csp" target="_blank"
-              >RIT Service Center</a
-            >
-          </div>
-          <div class="col-4 col-sm-12">
-            <p class="stagger">585-475-5000</p>
-          </div>
-          <div class="col-4 col-sm-12">
-            <a class="noLine" href="mailto:help.rit.edu" target="_blank"
-              >help.rit.edu</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-2 section">
-        <div class="links row">
-          <div class="col-4 col-sm-12">
-            <a href="https://www.rit.edu/admissions/graduate" target="_blank"
-              >Graduate Admissions</a
-            >
-          </div>
-          <div class="col-4 col-sm-12">
-            <p class="stagger">585-475-2229</p>
-          </div>
-          <div class="col-4 col-sm-12">
-            <a class="noLine" href="mailto:gradinfo@rit.edu" target="_blank"
-              >gradinfo@rit.edu
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+      <div class="offcanvas-body"></div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
