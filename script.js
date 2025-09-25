@@ -127,7 +127,28 @@ const TEXT = {
       );
     });
   },
-  async genMajors() {},
+  async genMajors() {
+    let text = await (await fetch("majors.txt")).text();
+    text = text.split("\r").join("").split("\n").join("").split("~");
+    const overList = document.createElement("ul");
+    let over = null;
+    text.forEach((e) => {
+      if (e[0] && e.at(-1) === "*") {
+        const subList = document.createElement("li");
+        overList.append(subList);
+        subList.textContent = e.slice(1, e.length - 1);
+        const sublistItems = document.createElement("ul");
+        subList.append(sublistItems);
+        sublistItems.id = e.slice(1, e.length - 1).split(" ").join("");
+        over = sublistItems;
+      } else {
+        const li = document.createElement("li");
+        li.textContent = e;
+        over.append(li);
+      }
+    });
+    document.getElementById("majorsCollapse").append(overList);
+  },
   init() {
     this.newQuote();
     this.genFoot();
