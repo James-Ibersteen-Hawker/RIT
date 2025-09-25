@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   background-size: 80;
   --orange: rgb(255, 102, 0);
-  --transOrange: rgba(255, 102, 0, 0.616);
+  --transOrange: rgba(255, 102, 0, 0.65);
   scroll-behavior: smooth;
   animation-name: moveBG;
   animation-duration: 7s;
@@ -423,6 +423,58 @@ body {
       }
       .links::before {
         clip-path: none;
+      }
+    }
+  }
+  .offcanvas {
+    background: linear-gradient(
+        35deg,
+        var(--transOrange),
+        rgba(230, 230, 230, 0.65)
+      ),
+      url("imgs/NAVRIT.jpg");
+    background-size: cover;
+    .offcanvas-title {
+      text-align: center;
+      width: 100%;
+      font-weight: 900;
+      font-size: 40px;
+      font-family: "Yrsa", serif;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .btn-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    .links {
+      font-size: 30px;
+      color: rgba(0, 0, 0, 0.725);
+      text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55);
+      text-align: center;
+      font-family: "Chango", sans-serif;
+      .active {
+        text-shadow: 1px 1px rgb(59, 41, 32), -1px -1px rgb(120, 80, 55),
+          0px 0px 10px rgb(255, 255, 255);
+      }
+      .link, .toTop {
+        cursor: pointer;
+        transition: 0.25s;
+      }
+      .link:hover, .toTop:hover {
+        text-shadow: 0px 0px 2px var(--orange), -5px -5px 1px rgb(71, 48, 33),
+          -5px -5px 2px var(--orange), -10px -10px 1px rgb(36, 25, 19),
+          -10px -10px 2px var(--orange);
+        color: black;
+        transition: 0.25s;
+      }
+      .active:hover {
+        text-shadow: 0px 0px 10px rgb(255, 255, 255), 0px 0px 2px var(--orange),
+          -5px -5px 1px rgb(71, 48, 33), -5px -5px 2px var(--orange),
+          -10px -10px 1px rgb(36, 25, 19), -10px -10px 2px var(--orange);
+        color: black;
+        transition: 0.25s;
       }
     }
   }

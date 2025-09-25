@@ -15,11 +15,15 @@ const NAV = {
       })
   ),
   init() {
-    this.links.forEach((e, i) => {
+    this.links.forEach((e, _) => {
       function clickFunction() {
         this.links.forEach((e) => (e[1] = false)), (e[1] = true);
       }
       e[0].addEventListener("mousedown", clickFunction.bind(this));
+    });
+    document.querySelector(".toTop").addEventListener("click", () => {
+      window.scrollTo(0, 0);
+      this.links.forEach(([e, _]) => e.classList.remove("active"));
     });
   },
 };
