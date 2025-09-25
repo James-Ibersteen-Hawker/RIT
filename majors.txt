@@ -1,0 +1,82 @@
+*College of Art and Design*~
+3D Digital Design BFA~
+Game Arts Option~
+3D Visualization Option~
+Film and Animation BFA~
+Animation Option~
+Production Option~
+Furniture Design AOS~
+Graphic Design BFA~
+Humanities, Computing, and Design BS~
+Illustration BFA~
+Industrial Design BFA~
+Interior Design BFA~
+*College of Business*~
+Accounting BS~
+Business Exploration~
+Finance BS~
+Global Business Management BS~
+Hospitality and Tourism Management BS~
+Management Information Systems (MIS) BS~
+Marketing BS~
+Supply Chain Management BS~
+*College of Engineering and Engineering Technology*~
+Aerospace Engineering Option - Mechanical Engineering BS~
+Artificial Intelligence Option - Electrical Engineering BS~
+Automotive Engineering Option - Mechanical Engineering BS~
+Bioengineering Option - Mechanical Engineering BS~
+Biomedical Engineering BS~
+Chemical Engineering BS~
+Civil Engineering Technology BS~
+Clean and Renewable Energy Option - Electrical Engineering BS~
+Computer Engineering BS~
+Computer Engineering Option - Electrical Engineering BS~
+Computer Engineering Technology BS~
+Electrical Engineering BS~
+Electrical Engineering Technology BS~
+Energy and the Environment Option - Mechanical Engineering BS~
+Engineering Exploration~
+Engineering Technology Exploration~
+Environmental Sustainability, Health and Safety BS~
+Imaging Science BS~
+Industrial Engineering BS~
+Integrated Electronics Certificate~
+Mechanical Engineering BS~
+Mechanical Engineering Technology BS~
+Mechatronics Engineering Technology BS~
+Microelectronic Engineering BS~
+Microelectronics Option - Electrical Engineering BS~
+Packaging Science BS~
+Product Design Option - Mechanical Engineering Technology BS~
+Robotics and Automation Option - Mechanical Engineering Technology BS~
+Robotics and Manufacturing Engineering Technology BS~
+Robotics Option - Electrical Engineering BS~
+Secure Systems Option - Computer Engineering BS~
+Software Engineering BS~
+Surveying and Geospatial Analysis Option - Environmental Sustainability, Health and Safety BS~
+*College of Health Sciences and Technology*~
+Diagnostic Medical Sonography (Ultrasound) BS~
+Echocardiography (Cardiac Ultrasound) Certificate~
+*College of Liberal Arts*~
+Economics BS~
+English BS~
+*College of Science*~
+Applied Mathematics BS~
+Applied Statistics and Data Analytics BS~
+Biochemistry BS~
+Bioinformatics and Computational Biology BS~
+Biology BS~
+Biotechnology and Molecular Bioscience BS~
+*College of Computing and Information Sciences*~
+Computing and Information Technologies BS~
+Cybersecurity BS~
+Data Science BS~
+Game Design and Development BS~
+Human-Centered Computing BS~
+Information Technology BS~
+Software Engineering BS~
+*College of Imaging Arts and Sciences*~
+Photographic and Imaging Arts BS~
+Imaging and Photographic Technology BS~
+*College of Individualized Study*~
+Individualized Program BS

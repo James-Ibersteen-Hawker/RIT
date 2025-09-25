@@ -127,9 +127,11 @@ const TEXT = {
       );
     });
   },
+  async genMajors() {},
   init() {
     this.newQuote();
     this.genFoot();
+    this.genMajors();
   },
 };
 
