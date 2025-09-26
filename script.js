@@ -174,11 +174,29 @@ const TEXT = {
     const container = document.getElementById("clubsCollapse");
     container.append(ul);
   },
+  async genAlumns() {
+    let alumni = await (await fetch("alumni.txt")).text();
+    alumni = alumni.split("\r").join("").split("\n").join("").split("~");
+    const container = document.getElementById("alumni");
+    for (let i = 0; i < alumni.length; i += 3) {
+      const elem = ` <div class="alumnus row col-12">
+            <div class="col-5"><img src="people/${
+              alumni[i + 2]
+            }" alt="" class="img-fluid"/></div>
+            <div class="col-7">
+              <div class="h">${alumni[i].slice(1, alumni[i].length - 1)}</div>
+              <div class="about">${alumni[i + 1]}</div>
+            </div>
+          </div>`;
+      container.insertAdjacentHTML("beforeend", elem);
+    }
+  },
   async init() {
     this.newQuote();
     this.genFoot();
     await this.genMajors();
     await this.genClubs();
+    await this.genAlumns();
   },
 };
 
