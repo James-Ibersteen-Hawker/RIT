@@ -164,22 +164,31 @@ const TEXT = {
   async genClubs() {
     let text = await (await fetch("clubs.txt")).text();
     text = text.split("\r").join("").split("\n").join("").split("~");
-    const ul = document.createElement("ul");
-    ul.id = "clubs";
-    text.forEach((e) => {
+    const middle = text.length / 2;
+    const ul1 = document.createElement("ul");
+    const ul2 = document.createElement("ul");
+    const section1 = document.createElement("div");
+    const section2 = document.createElement("div");
+    const container = document.getElementById("clubsCollapse");
+    section1.append(ul1), section2.append(ul2);
+    container.append(section1), container.append(section2);
+    ul1.id = "clubs";
+    ul2.id = "clubs";
+    section1.classList.add("col-12", "col-lg-6");
+    section2.classList.add("col-12", "col-lg-6");
+    text.forEach((e, i) => {
       let li = document.createElement("li");
       li.textContent = e;
-      ul.append(li);
+      if (i <= middle) ul1.append(li);
+      else ul2.append(li);
     });
-    const container = document.getElementById("clubsCollapse");
-    container.append(ul);
   },
   async genAlumns() {
     let alumni = await (await fetch("alumni.txt")).text();
     alumni = alumni.split("\r").join("").split("\n").join("").split("~");
     const container = document.getElementById("alumni");
     for (let i = 0; i < alumni.length; i += 3) {
-      const elem = ` <div class="alumnus col-12 col-lg-6 col-xxl-3 py-3 px-3">
+      const elem = ` <div class="alumnus col-12 col-lg-6 py-3 px-3">
       <div class="row">
             <div class="col-5"><img src="people/${
               alumni[i + 2]
