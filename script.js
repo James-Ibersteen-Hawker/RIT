@@ -130,16 +130,29 @@ const TEXT = {
   async genMajors() {
     let text = await (await fetch("majors.txt")).text();
     text = text.split("\r").join("").split("\n").join("").split("~");
-    const overList = document.createElement("ul");
+    const overList1 = document.createElement("ul");
+    const overList2 = document.createElement("ul");
+    const sectionCount = Math.round(text.length / 2);
+    const section1 = document.createElement("div");
+    const section2 = document.createElement("div");
+    section1.append(overList1), section2.append(overList2);
+    section1.classList.add("col-12", "col-md-6");
+    section2.classList.add("col-12", "col-md-6");
+    const container = document.querySelector("#majorsCollapse");
+    container.append(section1), container.append(section2);
     let over = null;
-    text.forEach((e) => {
+    text.forEach((e, i) => {
       if (e[0] && e.at(-1) === "*") {
         const subList = document.createElement("li");
-        overList.append(subList);
+        if (i <= sectionCount) overList1.append(subList);
+        else overList2.append(subList);
         subList.textContent = e.slice(1, e.length - 1);
         const sublistItems = document.createElement("ul");
         subList.append(sublistItems);
-        sublistItems.id = e.slice(1, e.length - 1).split(" ").join("");
+        sublistItems.id = e
+          .slice(1, e.length - 1)
+          .split(" ")
+          .join("");
         over = sublistItems;
       } else {
         const li = document.createElement("li");
@@ -147,7 +160,6 @@ const TEXT = {
         over.append(li);
       }
     });
-    document.getElementById("majorsCollapse").append(overList);
   },
   init() {
     this.newQuote();
