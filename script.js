@@ -161,10 +161,24 @@ const TEXT = {
       }
     });
   },
-  init() {
+  async genClubs() {
+    let text = await (await fetch("clubs.txt")).text();
+    text = text.split("\r").join("").split("\n").join("").split("~");
+    const ul = document.createElement("ul");
+    ul.id = "clubs";
+    text.forEach((e) => {
+      let li = document.createElement("li");
+      li.textContent = e;
+      ul.append(li);
+    });
+    const container = document.getElementById("clubsCollapse");
+    container.append(ul);
+  },
+  async init() {
     this.newQuote();
     this.genFoot();
-    this.genMajors();
+    await this.genMajors();
+    await this.genClubs();
   },
 };
 

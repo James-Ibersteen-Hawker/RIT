@@ -1,0 +1,1 @@
+ChatGPT acted as my datacrawler to extract large lists of data for the Majors and Clubs to not have to copy every entry by hand
