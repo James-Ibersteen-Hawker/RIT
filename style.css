@@ -569,6 +569,26 @@ body {
     object-fit: cover;
   }
 }
+.alumnus {
+  border-radius: 10px;
+  .col-7 div:nth-child(1) {
+    font-weight: 900;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-family: "Yrsa", serif;
+    font-size: 22px;
+  }
+  .col-7 div:nth-child(2) {
+    text-align: justify;
+    font-family: "Times New Roman", serif;
+    font-size: 18px;
+  }
+  img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+  }
+}
 @keyframes moveBG {
   from {
     background-position: 0;
