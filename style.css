@@ -457,11 +457,13 @@ body {
           clip-path: polygon(
             5px 50%,
             0px 0px,
-            12px 3px,
+            15px 0px,
+            20px 3px,
             calc(100% - 2px) 3px,
             100% 50%,
             calc(100% - 2px) 7px,
-            12px 7px,
+            20px 7px,
+            15px 100%,
             0px 100%
           );
         }
@@ -562,6 +564,12 @@ body {
         transition: 0.25s;
       }
     }
+  }
+  img,
+  iframe,
+  .parallax,
+  header .links .link {
+    user-select: none;
   }
 }
 .container-fluid {
