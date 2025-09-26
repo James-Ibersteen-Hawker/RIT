@@ -179,7 +179,7 @@ const TEXT = {
     alumni = alumni.split("\r").join("").split("\n").join("").split("~");
     const container = document.getElementById("alumni");
     for (let i = 0; i < alumni.length; i += 3) {
-      const elem = ` <div class="alumnus col-12 mb-3">
+      const elem = ` <div class="alumnus col-12 col-lg-6 col-xxl-3 py-3 px-3">
       <div class="row">
             <div class="col-5"><img src="people/${
               alumni[i + 2]
