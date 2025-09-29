@@ -35,7 +35,7 @@ body {
     z-index: 20;
     .LOGO {
       cursor: pointer;
-      width: 230px;
+      width: 180px;
       user-select: none;
       aspect-ratio: 1/1;
       border-radius: 100%;
@@ -54,7 +54,7 @@ body {
       box-shadow: 0px 0px 30px rgb(80, 32, 0);
     }
     .rondel {
-      width: 250px;
+      width: 200px;
       aspect-ratio: 1/1;
       border-radius: 100%;
       position: absolute;
@@ -589,8 +589,15 @@ body {
     object-fit: cover;
   }
 }
-.alumnus {
-  border-radius: 10px;
+.alumnus,
+.facultymember {
+  height: 100%;
+  .row {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
   .col-7 div:nth-child(1) {
     font-weight: 900;
     text-align: center;
@@ -603,10 +610,24 @@ body {
     font-family: "Times New Roman", serif;
     font-size: 18px;
   }
+  .col-7 {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   img {
     object-fit: cover;
     object-position: center;
     height: 100%;
+    margin: 0 !important;
+    width: 100%;
+    aspect-ratio: 1/1 !important;
+    overflow: clip;
+  }
+  .col-5 {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 @keyframes moveBG {
@@ -653,10 +674,10 @@ body {
     margin: 30px;
   }
   .LOGO {
-    width: 200px !important;
+    width: 150px !important;
   }
   .rondel {
-    width: 220px !important;
+    width: 170px !important;
   }
   .divide {
     width: 240px !important;

@@ -36,7 +36,12 @@ const PAGE = {
     ]);
     this.points = headings;
     this.points.forEach(
-      (e) => (e[1] = window.scrollY + e[0].getBoundingClientRect().top - 150)
+      (e) =>
+        (e[1] =
+          window.scrollY +
+          e[0].getBoundingClientRect().top -
+          150 -
+          document.querySelector(".LOGO").offsetHeight / 2)
     );
     if (!listener) return;
     window.addEventListener("scroll", () => PAGE.init(false));
@@ -188,7 +193,7 @@ const TEXT = {
     alumni = alumni.split("\r").join("").split("\n").join("").split("~");
     const container = document.getElementById("alumni");
     for (let i = 0; i < alumni.length; i += 3) {
-      const elem = ` <div class="alumnus col-12 col-lg-6 py-3 px-3">
+      const elem = ` <div class="alumnus col-12 col-lg-6 col-xxl-4 py-3 px-3">
       <div class="row">
             <div class="col-5"><img src="people/${
               alumni[i + 2]
@@ -202,12 +207,32 @@ const TEXT = {
       container.insertAdjacentHTML("beforeend", elem);
     }
   },
+  async genFaculty() {
+    let faculty = await (await fetch("faculty.txt")).text();
+    faculty = faculty.split("\r").join("").split("\n").join("").split("~");
+    const container = document.getElementById("faculty");
+    for (let i = 0; i < faculty.length; i += 3) {
+      const elem = ` <div class="facultymember col-12 col-lg-6 col-xxl-4 py-3 px-3">
+      <div class="row">
+            <div class="col-5"><img src="people/${
+              faculty[i + 2]
+            }" alt="" class="img-fluid"/></div>
+            <div class="col-7">
+              <div class="h">${faculty[i].slice(0, faculty[i].length - 1)}</div>
+              <div class="about">${faculty[i + 1]}</div>
+            </div>
+            </div>
+          </div>`;
+      container.insertAdjacentHTML("beforeend", elem);
+    }
+  },
   async init() {
     this.newQuote();
     this.genFoot();
     await this.genMajors();
     await this.genClubs();
     await this.genAlumns();
+    await this.genFaculty();
   },
 };
 
